@@ -1,0 +1,4 @@
+book_fname = 'data/Goblet.txt';
+[char_to_ind,ind_to_char] = ReadData(book_fname);
+
+hyper_paras = struct('m',100,'eta',ks,'eta',0.1,'seq length',25,'n_batch',5,'n_epochs',10);

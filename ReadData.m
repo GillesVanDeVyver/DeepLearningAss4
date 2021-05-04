@@ -1,4 +1,4 @@
-function  [char_to_ind,ind_to_char] = ReadData(book_fname)
+function  [char_to_ind,ind_to_char,K] = ReadData(book_fname)
     fid = fopen(book_fname,'r');
     book_data = fscanf(fid,'%c');
     fclose(fid);

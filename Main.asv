@@ -1,4 +1,31 @@
+rng(400);
 book_fname = 'data/Goblet.txt';
-[char_to_ind,ind_to_char] = ReadData(book_fname);
+[char_to_ind,ind_to_char,K,book_data] = ReadData(book_fname);
 
-hyper_paras = struct('m',100,'eta',ks,'eta',0.1,'seq length',25,'n_batch',5,'n_epochs',10);
+hyper_paras = struct('m',100,'eta',0.1,'seq_length',25);
+RNN = InitParas(hyper_paras,K);
+x0=zeros(K,1);
+x0(60)=1;
+
+
+
+X_chars = book_data(1:hyper_paras.seq_length);
+Y_chars = book_data(2:hyper_paras.seq_length+1);
+
+X = convertToOneHot(X_chars,K,char_to_ind);
+[loss,P] = ForwardPass(RNN,
+
+
+
+
+
+
+
+
+n=25;
+Y = Synthesize(RNN,x0,n,K);
+for pos =1:n
+    ind = find(Y(:,pos),1);
+    ind_to_char(ind);
+end
+

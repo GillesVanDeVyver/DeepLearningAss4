@@ -5,5 +5,6 @@ function  RNN = InitParas(hyper_paras,K)
     U = randn(hyper_paras.m, K)*sig;
     W = randn(hyper_paras.m, hyper_paras.m)*sig;
     V = randn(K, hyper_paras.m)*sig;
-    RNN = struct('b',b,'c',c,'U',U,'W',W,'V',V);
+    h0=zeros(hyper_paras.m,1);
+    RNN = struct('b',b,'c',c,'U',U,'W',W,'V',V,'h0',h0,'K',K);
 end

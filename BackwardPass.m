@@ -23,4 +23,7 @@ function grads = BackwardPass(RNN,P,A,H,X,Y,K)
         grad_b=grad_b+transpose(grad_at);
     end
     grads = struct('V',grad_V,'W',grad_W,'U',grad_U,'b',grad_b,'c',grad_c);
+    for f = fieldnames(grads)'
+        grads.(f{1}) = max(min(grads.(f{1}), 5), -5);
+    end
 end
